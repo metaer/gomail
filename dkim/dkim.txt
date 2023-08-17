@@ -1,0 +1,4 @@
+openssl genrsa -out private 2048
+openssl rsa -in private -pubout -out public
+sed '1d;$d' public | tr -d '\n' > spublic
+v=DKIM1; k=rsa; p=<public-key from spublic>

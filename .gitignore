@@ -1,0 +1,9 @@
+.idea
+cert
+!cert/gencert.sh
+dkim
+!dkim/dkim.txt
+bin
+!bin/.gitkeep
+private_example
+dev_config.yaml

@@ -1,0 +1,4 @@
+dev_rcpt_email: 'example@example.com'
+from_domain: 'example.com'
+username: 'username'
+password: 'password'

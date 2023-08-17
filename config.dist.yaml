@@ -1,0 +1,13 @@
+smtp_server_domain: 'localhost'
+from_domain: 'localhost'
+port: '587'
+dkim_private_key_file: 'dkim/private'
+add_dkim_signature: true
+tls_cert: 'cert/server.crt'
+tls_key: 'cert/server.key'
+dkim_selector: 'main'
+users:
+  - username: user1
+    password: pass1
+  - username: user2
+    password: pass2

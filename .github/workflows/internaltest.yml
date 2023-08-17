@@ -1,0 +1,29 @@
+name: internal-test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  internaltest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '^1.20'
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run tests
+        run: |
+          go test -race -coverprofile unit.txt -cover ./...
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
+          file: ./unit.txt
+          flags: unit,${{ matrix.os }},${{ matrix.go-version }}
+          name: unit

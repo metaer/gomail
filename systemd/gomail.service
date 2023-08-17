@@ -1,0 +1,11 @@
+[Unit]
+Description=gomail
+After=network.target
+
+[Service]
+User=root
+Restart=always
+ExecStart=/usr/local/bin/gomail
+
+[Install]
+WantedBy=multi-user.target
