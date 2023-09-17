@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"mime"
 	"net/smtp"
 )
 
@@ -19,7 +20,10 @@ func main() {
 	*/
 	from := "admin@mailer-demo.ru"
 
-	message := []byte("Subject: Тестовая тема\r\n" +
+	subject := "Тестовая тема"
+	encodedSubject := mime.QEncoding.Encode("utf-8", subject)
+
+	message := []byte("Subject: " + encodedSubject + "\r\n" +
 		"To: " + sendTo + "\r\n" +
 		"From: " + from + "\r\n" +
 		"Content-Type: text/plain; charset=\"utf-8\"\r\n" +
