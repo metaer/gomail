@@ -1,5 +1,5 @@
 build:
-	rm -rf ./bin/gomail && go build -o ./bin/gomail ./cmd/smtp
+	rm -rf ./bin/gomail && GOOS=linux GOARCH=amd64 go build -o ./bin/gomail ./cmd/smtp
 unlink:
 	ssh root@smtp.mailer-demo.ru "unlink /usr/local/bin/gomail"
 upload:
