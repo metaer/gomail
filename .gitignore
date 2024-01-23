@@ -1,6 +1,7 @@
 .idea
 cert
 !cert/gencert.sh
+!cert/localhost.cnf
 dkim
 !dkim/dkim.txt
 bin
